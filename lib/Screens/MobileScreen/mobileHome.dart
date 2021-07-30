@@ -23,11 +23,11 @@ class mobileMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               Container(
                 width: MediaQuery.of(context).size.width*0.8,
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width*0.4,
+                      width: MediaQuery.of(context).size.width,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -81,13 +81,14 @@ class mobileMainScreen extends StatelessWidget {
 
   Container VisitBlog(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width*0.7,
-      height: MediaQuery.of(context).size.height*0.2,
+      padding: EdgeInsets.all(20),
+      width: MediaQuery.of(context).size.width*0.8,
+      height: MediaQuery.of(context).size.height*0.4,
       decoration: BoxDecoration(
         color: Color(0xFFF9F3F5),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -106,7 +107,7 @@ class mobileMainScreen extends StatelessWidget {
 
           ),
           Container(
-            width: MediaQuery.of(context).size.width * 0.2,
+            width: MediaQuery.of(context).size.width * 0.6,
             height: MediaQuery.of(context).size.height * 0.1 ,
             decoration: BoxDecoration(
               color: Colors.grey,
@@ -122,12 +123,11 @@ class mobileMainScreen extends StatelessWidget {
   Container AboutUsCard(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width*0.8,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset('Assets/Images/graph.png',height: MediaQuery.of(context).size.height*0.4,),
           Container(
-            width: MediaQuery.of(context).size.width*0.4,
+            width: MediaQuery.of(context).size.width,
             child: AboutUs(context),),
         ],
       ),
@@ -136,13 +136,14 @@ class mobileMainScreen extends StatelessWidget {
 
   Container SubscribeNow(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width*0.7,
-      height: MediaQuery.of(context).size.height*0.2,
+      width: MediaQuery.of(context).size.width*0.8,
+      padding: EdgeInsets.all(20),
+      // height: MediaQuery.of(context).size.height*0.2,
       decoration: BoxDecoration(
         color: Color(0xFFF9F3F5),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -161,7 +162,7 @@ class mobileMainScreen extends StatelessWidget {
 
           ),
           Container(
-              width: MediaQuery.of(context).size.width * 0.2,
+              width: MediaQuery.of(context).size.width * 0.6,
               child: TextField())
         ],
       ),
