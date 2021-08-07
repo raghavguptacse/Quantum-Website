@@ -19,64 +19,70 @@ class mobileMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               AboutUsCard(context),
               SizedBox(height: 100,),
+              ServicesOffered(context),
+              SizedBox(height: 100,),
               VisitBlog(context),
               SizedBox(height: 100,),
-              Container(
-                width: MediaQuery.of(context).size.width*0.8,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Qtpi- Language Description",
-                            style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.height * 0.04,
-                              color: Colors.redAccent,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            child: Text(
-                              "Qtpi is a simulator for a modified version of Gay and Nagarajan’s CQP (Communicating Quantum Processes, POPL 2005). Still under development, but already a capable tool.",
-                              style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height * 0.025,
-                                // color: Colors.white,
-                                // color: Colors.white
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.6,
-                            child: Text(
-                              "Qtpi is a mixture of two notations: there’s a process language, based on the pi calculus with special steps to allow quantum bits (qubits) to be created (newq), put through gates (>>) and measured (-/-) — and, inherited from CQP, it mis-spells qubit as qbit.",
-                              style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height * 0.025,
-                                // color: Colors.white,
-                              ),
-                            ),
-                          ),
-
-                        ],
-                      ),),
-                    Image.asset('Assets/Images/computer.png',height: MediaQuery.of(context).size.height*0.4,),
-                  ],
-                ),
-              )
+              Languge_Description(context)
             ],
           ),
         ),
       ),
     );
+  }
+
+  Container Languge_Description(BuildContext context) {
+    return Container(
+              width: MediaQuery.of(context).size.width*0.8,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Qtpi- Language Description",
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.04,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Image.asset('Assets/Images/computer.png',height: MediaQuery.of(context).size.height*0.3,),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: Text(
+                            "Qtpi is a simulator for a modified version of Gay and Nagarajan’s CQP (Communicating Quantum Processes, POPL 2005). Still under development, but already a capable tool.",
+                            style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.height * 0.025,
+                              // color: Colors.white,
+                              // color: Colors.white
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          child: Text(
+                            "Qtpi is a mixture of two notations: there’s a process language, based on the pi calculus with special steps to allow quantum bits (qubits) to be created (newq), put through gates (>>) and measured (-/-) — and, inherited from CQP, it mis-spells qubit as qbit.",
+                            style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.height * 0.025,
+                              // color: Colors.white,
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    ),),
+                ],
+              ),
+            );
   }
 
   Container VisitBlog(BuildContext context) {
@@ -371,6 +377,79 @@ class mobileMainScreen extends StatelessWidget {
         //   ),
         // ),
       ],
+    );
+  }
+
+  Container ServicesOffered(BuildContext context) {
+    return Container(
+        child:Column(
+          children: [
+            Text("Services We Offer",style: TextStyle(
+              fontSize: MediaQuery.of(context).size.height * 0.04,
+              color: Colors.redAccent,
+            ),),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ServiceCard(
+                  img: 'quantum-computing.png',
+                  name: 'Quantum Computing Services',
+                ),
+                ServiceCard(
+                  img: 'solutions.png',
+                  name: 'Quantum Solutions',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ServiceCard(
+                  img: 'writing.png',
+                  name: 'Technical Quantum Writing',
+                ),
+                ServiceCard(
+                  img: 'cryptography.png',
+                  name: 'Quantum Cryptography models',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            ServiceCard(
+              img: 'Algo.png',
+              name: 'Quantum Computing Algorithms',
+            ),
+          ],
+        )
+    );
+  }
+
+}
+
+class ServiceCard extends StatelessWidget {
+  ServiceCard({required this.img,required this.name});
+  String name , img;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: kBoxDecoration,
+      width: MediaQuery.of(context).size.width*0.42,
+      height: MediaQuery.of(context).size.height*0.28 ,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset('Assets/Images/'+img,height:MediaQuery.of(context).size.height*0.15 ,),
+          Text(name,style: kBigText.copyWith(fontSize: 18),textAlign: TextAlign.center,)
+        ],
+      ),
     );
   }
 }

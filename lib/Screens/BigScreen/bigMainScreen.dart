@@ -24,6 +24,7 @@ class bigMainScreen extends StatelessWidget {
               VisitBlog(context),
               SizedBox(height: 100,),
               Language_Description(context),
+              SizedBox(height: 100,),
             ],
           ),
         ),
