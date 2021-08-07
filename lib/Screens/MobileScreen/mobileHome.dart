@@ -23,7 +23,9 @@ class mobileMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               VisitBlog(context),
               SizedBox(height: 100,),
-              Languge_Description(context)
+              Languge_Description(context),
+              SizedBox(height: 100,),
+              Careers(context)
             ],
           ),
         ),
@@ -31,6 +33,46 @@ class mobileMainScreen extends StatelessWidget {
     );
   }
 
+  Container Careers(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.9,
+      height: MediaQuery.of(context).size.height*0.35,
+      decoration: BoxDecoration(
+        color: Color(0xFFF9F3F5),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Careers",style: kBigText.copyWith(fontSize: 35),),
+                Text("If you want to fall into this entropy with us, ket us know more about you",softWrap: true,style: kBigText.copyWith(
+                    color: Colors.grey,
+                    fontSize: 15
+                ),),
+              ],
+            ),
+
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.1 ,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Center(child: Text("See Available Positions",style: kBigText.copyWith(fontSize: 20),)),
+          )
+        ],
+      ),
+    );
+  }
+  
   Container Languge_Description(BuildContext context) {
     return Container(
               width: MediaQuery.of(context).size.width*0.8,
