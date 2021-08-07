@@ -19,6 +19,8 @@ class bigMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               AboutUsCard(context),
               SizedBox(height: 100,),
+              info(context),
+              SizedBox(height: 100,),
               ServicesOffered(context),
               SizedBox(height: 100,),
               VisitBlog(context),
@@ -34,6 +36,27 @@ class bigMainScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Container info(BuildContext context) {
+    return Container(
+              width: MediaQuery.of(context).size.width*0.8,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("How We Do This ?",style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
+                    color: Colors.redAccent,
+                  ),),
+                  SizedBox(height: 50,),
+                  InfoCard(img: 'research.png',info: 'Our research is based on quantum circuit simulators with integrated noise mitigators. We are working as a service company to provide our research to your systems with utmost consistency and reliability.',),
+                  SizedBox(height: 50,),
+                  InfoCard(img: 'consult.png', info: 'Our team is just an email away, for personal and professional consultants to guide towards quantum solutions and all the technical work it follows. We study, understand your product model and enable you with the most feasible developmental roadmap.'),
+                  SizedBox(height: 50,),
+                  InfoCard(img: 'design.png', info: 'We, with our design team, design and build the quantum solution and make it industry ready. Our expertise allows us to analyze, and hence deploy the customized design.'),
+                ],
+              ),
+            );
   }
 
   Container Projects(BuildContext context) {
@@ -520,6 +543,28 @@ class bigMainScreen extends StatelessWidget {
         //     ),
         //   ),
         // ),
+      ],
+    );
+  }
+}
+
+class InfoCard extends StatelessWidget {
+  InfoCard({required this.img,required this.info});
+  String img,info;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset('Assets/Images/'+img,height:MediaQuery.of(context).size.height*0.1 ,),
+        Container(
+          width: MediaQuery.of(context).size.width*0.7,
+          child: Text(info
+          ,softWrap: true,style: TextStyle(
+              fontSize: 20
+            ),
+          ),
+        )
       ],
     );
   }
