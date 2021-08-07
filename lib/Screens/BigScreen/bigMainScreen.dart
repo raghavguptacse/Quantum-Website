@@ -25,12 +25,66 @@ class bigMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               Language_Description(context),
               SizedBox(height: 100,),
+              Projects(context),
+              SizedBox(height: 100,),
               Careers(context),
+              SizedBox(height: 100,),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Container Projects(BuildContext context) {
+    return Container(
+              child: Column(
+                children: [
+                  Text("Explore Our Projects",style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
+                    color: Colors.redAccent,
+                  ),),
+                  SizedBox(height: 100,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        decoration: kBoxDecoration,
+                        width: MediaQuery.of(context).size.width*0.3,
+                        height: MediaQuery.of(context).size.height*0.4,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Qtipi",style: kBigText,),
+                            SizedBox(height: 50,),
+                            Text("Quantum computing language developed by our core member",textAlign: TextAlign.center,style: TextStyle(
+                              fontSize: 20,
+                            ),)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        decoration: kBoxDecoration,
+                        width: MediaQuery.of(context).size.width*0.3,
+                        height: MediaQuery.of(context).size.height*0.4,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("OpenQ",style: kBigText,),
+                            SizedBox(height: 50,),
+                            Text(" An open-source quantum simulator which integrates a noise mitigator, thus helping to achieve an efficient, error-free and fault-tolerant quantum circuits model. It is currently under development and is about to be released for Beta"
+                            ,textAlign: TextAlign.center,style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            );
   }
 
   Container Careers(BuildContext context) {

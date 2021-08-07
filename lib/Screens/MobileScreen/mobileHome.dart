@@ -25,10 +25,60 @@ class mobileMainScreen extends StatelessWidget {
               SizedBox(height: 100,),
               Languge_Description(context),
               SizedBox(height: 100,),
-              Careers(context)
+              Projects(context),
+              SizedBox(height: 100,),
+              SizedBox(height: 100,),
+              Careers(context),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container Projects(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Text("Explore Our Projects",style: TextStyle(
+            fontSize: MediaQuery.of(context).size.height * 0.04,
+            color: Colors.redAccent,
+          ),),
+          SizedBox(height: 100,),
+          Container(
+            decoration: kBoxDecoration,
+            width: MediaQuery.of(context).size.width*0.9,
+            height: MediaQuery.of(context).size.height*0.4,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Qtipi",style: kBigText,),
+                SizedBox(height: 50,),
+                Text("Quantum computing language developed by our core member",textAlign: TextAlign.center,style: TextStyle(
+                  fontSize: 20,
+                ),)
+              ],
+            ),
+          ),
+          SizedBox(height: 50,),
+          Container(
+            decoration: kBoxDecoration,
+            width: MediaQuery.of(context).size.width*0.9,
+            height: MediaQuery.of(context).size.height*0.4,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("OpenQ",style: kBigText,),
+                SizedBox(height: 50,),
+                Text(" An open-source quantum simulator which integrates a noise mitigator, thus helping to achieve an efficient, error-free and fault-tolerant quantum circuits model. It is currently under development and is about to be released for Beta"
+                  ,textAlign: TextAlign.center,style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
