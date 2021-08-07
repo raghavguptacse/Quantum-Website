@@ -124,7 +124,7 @@ class mobileMainScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Careers",style: kBigText.copyWith(fontSize: 35),),
-                Text("If you want to fall into this entropy with us, ket us know more about you",softWrap: true,style: kBigText.copyWith(
+                Text("If you want to fall into this entropy with us, let us know more about you",softWrap: true,style: kBigText.copyWith(
                     color: Colors.grey,
                     fontSize: 15
                 ),),
