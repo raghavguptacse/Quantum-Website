@@ -2,8 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quantum/Screens/Constatnts/bigScreenConstants.dart';
 
-class bigMainScreen extends StatelessWidget {
-  const bigMainScreen({Key? key}) : super(key: key);
+class bigMainScreen extends StatefulWidget {
+  bigMainScreen({Key? key}) : super(key: key);
+
+  @override
+  _bigMainScreenState createState() => _bigMainScreenState();
+}
+
+class _bigMainScreenState extends State<bigMainScreen> {
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +22,21 @@ class bigMainScreen extends StatelessWidget {
             children: [
               TopImageAndText(context),
               SizedBox(height: 100,),
+              ServicesOffered(context),
+              SizedBox(height: 100,),
+              info(context),
+              SizedBox(height: 100,),
               SubscribeNow(context),
               SizedBox(height: 100,),
               AboutUsCard(context),
               SizedBox(height: 100,),
-              info(context),
-              SizedBox(height: 100,),
-              ServicesOffered(context),
-              SizedBox(height: 100,),
               VisitBlog(context),
+              SizedBox(height: 100,),
+              Projects(context),
               SizedBox(height: 100,),
               Language_Description(context),
               SizedBox(height: 100,),
-              Projects(context),
+              MeetTheTeam(),
               SizedBox(height: 100,),
               Careers(context),
               SizedBox(height: 100,),
@@ -36,6 +45,49 @@ class bigMainScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Container MeetTheTeam() {
+    return Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                      child: Icon(CupertinoIcons.back),
+                      onTap: (){
+                        setState(() {
+                          if(index>0)
+                            index--;
+                        });
+                      },
+                  ),
+                  IndexedStack(
+                    index: index,
+                    children: [
+                      TeamCard(
+                        img: 'prof.jpg',
+                        Name: 'Dr. Rajagopal Nagarajan',
+                        about: 'Rajagopal Nagarajan, a professor of quantum computing from Middlesex University, UK. He has worked in the premise of quantum with leading organisations in the world such as BT and Dwave.',
+                      ),
+                      TeamCard(
+                        img: 'Raghav.jpeg',
+                        Name: 'Raghav Gupta',
+                        about: 'I am third year Student at Bennett University , pursuing bachelors in Computer Science Engineering. My interest lies in product thinking, Artificial Intelligence, Machine Learning, Internet Of things and user research but I dont mind banging lines of code to build stuff. I am driven by an irresistible urge to create things',
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          if(index<1)
+                            index++;
+                          else index=0;
+                        });
+                      },
+                      child: Icon(CupertinoIcons.right_chevron))
+                ],
+              ),
+            );
   }
 
   Container info(BuildContext context) {
@@ -377,35 +429,6 @@ class bigMainScreen extends StatelessWidget {
             );
   }
 
-  Container MeetOurTeam(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(30),
-      color: Colors.blueAccent,
-      width: MediaQuery.of(context).size.width * 0.7,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "Meet Our Team",
-            style: kBigText.copyWith(
-                fontSize: MediaQuery.of(context).size.height * 0.1),
-          ),
-          Image.asset('Assets/Images/prof.jpg'),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Dr. Rajagopal Nagarajan, is a current professor in Middlesex University in the department of Foundations of Computing. He completed his PhD and postdoctoral research from Imperial College London. He and his team at the Middlesex University invented their own quantum simulator language, known as QTPI. With his continuous guidance and support, we are building a team with uttermost dedication to contribute our careers in this modern world of quantum technologies.',
-              style: kBigText,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
   Column AboutOpenQ(BuildContext context) {
     return Column(
       children: [
@@ -544,6 +567,38 @@ class bigMainScreen extends StatelessWidget {
         //   ),
         // ),
       ],
+    );
+  }
+}
+
+class TeamCard extends StatelessWidget {
+  TeamCard({required this.img,required this.Name,required this.about});
+  String Name,about,img;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.6,
+      height: MediaQuery.of(context).size.height*0.4 ,
+      decoration: kBoxDecoration,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset(
+            'Assets/Images/'+img,
+            height: MediaQuery.of(context).size.height*0.30,
+          ),
+          Container(
+            width:MediaQuery.of(context).size.width*0.3,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(Name,style: kBigText.copyWith(fontSize: 25),),
+                Text(about,softWrap: true,textAlign: TextAlign.center,)
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
