@@ -49,44 +49,53 @@ class _bigMainScreenState extends State<bigMainScreen> {
 
   Container MeetTheTeam() {
     return Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  GestureDetector(
-                      child: Icon(CupertinoIcons.back),
-                      onTap: (){
-                        setState(() {
-                          if(index>0)
-                            index--;
-                        });
-                      },
-                  ),
-                  IndexedStack(
-                    index: index,
+                  Text("Meet Our Team",style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.04,
+                    color: Colors.redAccent,
+                  ),),
+                  SizedBox(height: 50,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TeamCard(
-                        img: 'prof.jpg',
-                        Name: 'Dr. Rajagopal Nagarajan',
-                        about: 'Rajagopal Nagarajan, a professor of quantum computing from Middlesex University, UK. He has worked in the premise of quantum with leading organisations in the world such as BT and Dwave.',
+                      GestureDetector(
+                        child: Icon(CupertinoIcons.back),
+                        onTap: (){
+                          setState(() {
+                            if(index>0)
+                              index--;
+                          });
+                        },
                       ),
-                      TeamCard(
-                        img: 'Raghav.jpeg',
-                        Name: 'Raghav Gupta',
-                        about: 'I am third year Student at Bennett University , pursuing bachelors in Computer Science Engineering. My interest lies in product thinking, Artificial Intelligence, Machine Learning, Internet Of things and user research but I dont mind banging lines of code to build stuff. I am driven by an irresistible urge to create things',
+                      IndexedStack(
+                        index: index,
+                        children: [
+                          TeamCard(
+                            img: 'prof.jpg',
+                            Name: 'Dr. Rajagopal Nagarajan',
+                            about: 'Rajagopal Nagarajan, a professor of quantum computing from Middlesex University, UK. He has worked in the premise of quantum with leading organisations in the world such as BT and Dwave.',
+                          ),
+                          TeamCard(
+                            img: 'Raghav.jpeg',
+                            Name: 'Raghav Gupta',
+                            about: 'I am third year Student at Bennett University , pursuing bachelors in Computer Science Engineering. My interest lies in product thinking, Artificial Intelligence, Machine Learning, Internet Of things and user research but I dont mind banging lines of code to build stuff. I am driven by an irresistible urge to create things',
+                          ),
+                        ],
                       ),
+                      GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              if(index<1)
+                                index++;
+                              else index=0;
+                            });
+                          },
+                          child: Icon(CupertinoIcons.right_chevron))
                     ],
                   ),
-                  GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          if(index<1)
-                            index++;
-                          else index=0;
-                        });
-                      },
-                      child: Icon(CupertinoIcons.right_chevron))
                 ],
-              ),
+              )
             );
   }
 
