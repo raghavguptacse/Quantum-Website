@@ -99,12 +99,22 @@ class _mobileMainScreenState extends State<mobileMainScreen> {
                     Name: 'Raghav Gupta',
                     about: 'I am third year Student at Bennett University , pursuing bachelors in Computer Science Engineering. My interest lies in product thinking, Artificial Intelligence, Machine Learning, Internet Of things and user research but I dont mind banging lines of code to build stuff. I am driven by an irresistible urge to create things',
                   ),
+                  TeamCard(
+                      img: 'devanshi.jpeg',
+                      Name: 'Devanshi Arora',
+                      about:
+                      'Devanshi Arora whose alma matar is Shizuoka University, Japan, is one of our best . Her research is based on Quantum Key Distribution. Her expertise in Open-Q is related to Quantum Circuit Designer with integration of the noise mitigator.'),
+                  TeamCard(
+                      img: 'akash.jpeg',
+                      Name: 'Aakash Warke',
+                      about: 'Aakash Warke is currently researching on problems related to quantum optics and quantum communication at Bennett University, India. At Open-Q, he aims to develop theoretical noise reduction techniques that, on integration with Quantum Circuit designers, can ultimately help in developing an efficient platform.')
+
                 ],
               ),
               GestureDetector(
                   onTap: (){
                     setState(() {
-                      if(index<1)
+                      if(index<3)
                         index++;
                       else index=0;
                     });
